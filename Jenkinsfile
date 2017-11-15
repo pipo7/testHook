@@ -22,7 +22,7 @@ pipeline {
         }
 
 
-        stage ('Deployment Stage') {
+        stage ('Deployment & Packaging Stage') {
             steps {
                  
                     sh 'mvn deploy'
