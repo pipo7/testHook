@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.github.kevinsawicki</groupId>
+  <artifactId>github-maven-example</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20171115164940</lastUpdated>
+  </versioning>
+</metadata>
