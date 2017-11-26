@@ -46,5 +46,13 @@ pipeline {
                     step([$class: 'FindBugsPublisher', pattern: '**/findbugsXml.xml', unstableTotalAll:'20'])
             }   
         }
+        stage('Deploy To Production'){
+            steps {
+                timeout(time:5,unit:"SECONDS"){
+                input message: 'Do you approve for prod deployment?'
+                }
+            }   
+            echo "DEPLOYING TO CONTAINER - RAN and COMPLETED the JOB"
+        }
     }
 }
