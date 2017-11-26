@@ -26,12 +26,24 @@ pipeline {
             steps {
                  
                     sh 'mvn deploy'
-                    sh 'mvn checkstyle:checkstyle'                
+                    sh 'mvn checkstyle:checkstyle'   
+                    sh 'mvn pmd:pmd'   
+                    sh 'mvn findbugs:findbugs'   
             }
         }
-        stage('checkStyle Stage'){
+        stage('checkStyle publish Stage'){
             steps {
                 step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', pattern: '**/target/checkstyle-result.xml', healthy:'5', unHealthy:'10'])
+            }   
+        }
+        stage('PMD publish Stage'){
+            steps {
+                step([$class: 'PmdPublisher', pattern: '**/target/pmd.xml', unstableTotalAll:'20'])	
+            }   
+        }
+        stage('FindBug publish Stage'){
+            steps {
+                    step([$class: 'FindBugsPublisher', pattern: '**/findbugsXml.xml', unstableTotalAll:'20'])
             }   
         }
     }
