@@ -48,10 +48,18 @@ pipeline {
         }
         stage('Deploy To Production'){
             steps {
-                timeout(time:5,unit:"SECONDS"){
+                timeout(time:30,unit:"SECONDS"){
                 input message: 'Do you approve for prod deployment?'
                 }
-            }   
+            } 
+            post{
+                success{
+                    echo 'Approved and code deployed to produxn now'
+                }
+                failure{
+                    echo 'NOT Approved by QA build not deployed to produxn!'
+                }
+            }
         }
     }
 }
