@@ -52,7 +52,7 @@ pipeline {
                 input message: 'Do you approve for prod deployment?'
                 }
             }   
-            echo "DEPLOYING TO CONTAINER - RAN and COMPLETED the JOB"
+            echo 'DEPLOYING TO CONTAINER - RAN and COMPLETED the JOB'
         }
     }
 }
